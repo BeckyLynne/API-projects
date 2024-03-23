@@ -11,6 +11,7 @@ import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import pet.store.controller.model.PetStoreEmployee;
 
 
 @Entity
@@ -34,5 +35,13 @@ public class Employee {
 	@ToString.Exclude
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "petStoreId")
-	private PetStore petStores;
+	private PetStore petStore;
+
+	public void add(PetStoreEmployee petStoreEmployee) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
 }

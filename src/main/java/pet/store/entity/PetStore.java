@@ -28,13 +28,13 @@ public class PetStore {
 	private String petStoreAddress;
 	private String petStoreCity;
 	private String petStoreState;
-	private Integer petStoreZip;
+	private String petStoreZip;
 	private String petStorePhone;
 	
 
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@OneToMany(mappedBy = "petStores", cascade = CascadeType.ALL, orphanRemoval= true)
+	@OneToMany(mappedBy = "petStore", cascade = CascadeType.ALL, orphanRemoval= true)
 	private Set<Employee> employees = new HashSet<>();
 	
 	
@@ -45,7 +45,12 @@ public class PetStore {
 	joinColumns = @JoinColumn(name ="pet_store_id"), 
 	inverseJoinColumns = @JoinColumn(name = "customer_id"))
 	private Set<Customer> customers = new HashSet<>();
+
+
+	public PetStore orElseThrow(Object object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
+	}
 	
-	
-}
