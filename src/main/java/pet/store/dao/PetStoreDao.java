@@ -7,8 +7,4 @@ import pet.store.entity.PetStore;
 public interface PetStoreDao extends JpaRepository<PetStore, Long> {
 
 
-
-
-
-
 }

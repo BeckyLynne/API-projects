@@ -1,7 +1,5 @@
 package pet.store.entity;
 
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,8 +9,6 @@ import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import pet.store.controller.model.PetStoreEmployee;
-
 
 @Entity
 @Data
@@ -21,27 +17,24 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long employeeId;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long petStoreId;
-	
+
+	@EqualsAndHashCode.Exclude
 	private String employeeFirstName;
+
+	@EqualsAndHashCode.Exclude
 	private String employeeLastName;
+
+	@EqualsAndHashCode.Exclude
 	private String employeePhone;
+
+	@EqualsAndHashCode.Exclude
 	private String employeeJobTitle;
-	
+
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "petStoreId")
+	@ManyToOne
+	@JoinColumn(name = "pet_store_id", nullable = false)
 	private PetStore petStore;
 
-	public void add(PetStoreEmployee petStoreEmployee) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	
-	
 }

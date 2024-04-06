@@ -20,7 +20,7 @@ public class PetStoreData {
 	private String petStoreState;
 	private String petStoreZip;
 	private String petStorePhone;
-	
+
 	private Set<PetStoreEmployee> employees = new HashSet<>();
 	private Set<PetStoreCustomer> customers = new HashSet<>();
 
@@ -32,15 +32,48 @@ public class PetStoreData {
 		petStoreState = petStore.getPetStoreState();
 		petStoreZip = petStore.getPetStoreZip();
 		petStorePhone = petStore.getPetStorePhone();
-//		customers = new PetStoreCustomer();
-//		employees = new PetStoreEmployee();
 
-		for (Customer customers : petStore.getCustomers()) {
-			customers.add(new PetStoreCustomer());
+		for (Customer customer : petStore.getCustomers()) {
+			this.customers.add(new PetStoreCustomer(customer));
 		}
 
-		for (Employee employees : petStore.getEmployees()) {
-			employees.add(new PetStoreEmployee());
+		for (Employee employee : petStore.getEmployees()) {
+			this.employees.add(new PetStoreEmployee(employee));
+		}
+	}
+
+	@Data
+	@NoArgsConstructor
+	public static class PetStoreEmployee {
+		private Long employeeId;
+		private String employeeFirstName;
+		private String employeeLastName;
+		private String employeePhone;
+		private String employeeJobTitle;
+
+		public PetStoreEmployee(Employee employee) {
+			employeeId = employee.getEmployeeId();
+			employeeFirstName = employee.getEmployeeFirstName();
+			employeeLastName = employee.getEmployeeLastName();
+			employeePhone = employee.getEmployeePhone();
+			employeeJobTitle = employee.getEmployeeJobTitle();
+		}
+	}
+
+	@Data
+	@NoArgsConstructor
+	public static class PetStoreCustomer {
+		private Long customerId;
+		private String firstName;
+		private String lastName;
+		private String customerEmail;
+
+		public PetStoreCustomer(Customer customer) {
+			customerId = customer.getCustomerId();
+			firstName = customer.getFirstName();
+			lastName = customer.getLastName();
+			customerEmail = customer.getCustomerEmail();
 		}
 	}
 }
+
