@@ -18,20 +18,26 @@
 				"auth-model": "native"
 			}
 		},
-		"mysql8-18e3a1c9f91-72a22504540de886": {
+		"mysql8-18ecf419e8d-2f6f9bc37c0cd63e": {
 			"provider": "mysql",
 			"driver": "mysql8",
-			"name": "pet_store",
+			"name": "childs_call_data",
 			"save-password": true,
 			"configuration": {
 				"host": "localhost",
 				"port": "3306",
-				"database": "pet_store",
-				"url": "jdbc:mysql://localhost:3306/pet_store",
+				"database": "childs_call_data",
+				"url": "jdbc:mysql://localhost:3306/childs_call_data",
 				"configurationType": "MANUAL",
 				"home": "mysql_client",
 				"type": "dev",
 				"closeIdleConnection": true,
+				"properties": {
+					"connectTimeout": "20000",
+					"rewriteBatchedStatements": "true",
+					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2,TLSv1.3",
+					"allowPublicKeyRetrieval": "TRUE"
+				},
 				"auth-model": "native"
 			}
 		}

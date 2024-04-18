@@ -1,14 +1,14 @@
-package pet.store;
+package call.log;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class PetStoreApplication {
+public class CallLogApp {
 
 	public static void main(String[] args) {
-		 SpringApplication.run(PetStoreApplication.class, args);
+		 SpringApplication.run(CallLogApp.class, args);
 	}
 
 }

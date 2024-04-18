@@ -1,37 +1,38 @@
-package pet.store.entity;
-
-import java.util.HashSet;
-import java.util.Set;
+package call.log.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @Entity
 @Data
-public class Customer {
+public class Child {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long customerId;
+	private Long childId;
+	
+	private String childName;
 	
 	@EqualsAndHashCode.Exclude
-	private String lastName;
+	private int childAge;
 	
 	@EqualsAndHashCode.Exclude
-	private String firstName;
+	private String mood;
 	
 	@EqualsAndHashCode.Exclude
-	private String customerEmail;
+	private boolean wantedToTalk;
 
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@ManyToMany(mappedBy = "customers")
-	private Set<PetStore> petStores = new HashSet<>();
+	@ManyToOne
+	@JoinColumn(name = "call_id", nullable = false)
+	private PhoneCall phoneCall;
 
 }

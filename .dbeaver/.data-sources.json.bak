@@ -9,7 +9,8 @@
 			"configuration": {
 				"host": "localhost",
 				"port": "3306",
-				"url": "jdbc:mysql://localhost:3306/",
+				"database": "pet_store",
+				"url": "jdbc:mysql://localhost:3306/pet_store",
 				"configurationType": "MANUAL",
 				"home": "mysql_client",
 				"type": "dev",
